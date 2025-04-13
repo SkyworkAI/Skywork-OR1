@@ -1,6 +1,6 @@
 <div align="center">
 
-# Skywork-o1
+# Skywork-OR1
 
 </div>
 
@@ -17,8 +17,8 @@ docker pull whatcanyousee/verl:vemlp-th2.4.0-cu124-vllm0.6.3-ray2.10-te2.0-megat
 # Launch the desired Docker image:
 docker run --runtime=nvidia -it --rm --shm-size="10g" --cap-add=SYS_ADMIN -v <image:tag>
 
-# Inside the container, install Skywork-o1
-git clone https://github.com/SkyworkAI/Skywork-o1.git && cd Skywork-o1 && pip3 install -e .
+# Inside the container, install Skywork-OR1
+git clone https://github.com/SkyworkAI/Skywork-OR1.git && cd Skywork-OR1 && pip3 install -e .
 ```
 
 #### conda environment
@@ -30,7 +30,7 @@ conda activate verl
 # Installing RLLM dependencies.
 pip3 install torch==2.4.0 --index-url https://download.pytorch.org/whl/cu124
 pip3 install flash-attn --no-build-isolation
-git clone https://github.com/SkyworkAI/Skywork-o1.git
-cd Skywork-o1
+git clone https://github.com/SkyworkAI/Skywork-OR1.git
+cd Skywork-OR1
 pip3 install -e .
 ```
