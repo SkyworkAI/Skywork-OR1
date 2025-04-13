@@ -20,9 +20,7 @@ import os, pickle
 from verl.utils.reward_score.livecodebench.lcb_runner.benchmarks.code_generation import CodeGenerationProblem
 from verl.utils.reward_score.livecodebench.lcb_runner.evaluation.compute_code_generation_metrics import codegen_metrics, check_correctness
 from verl.utils.reward_score.livecodebench.lcb_runner.evaluation.pass_k_utils import extract_instance_results
-from verl.utils.reward_score.deepscaler_math.math_reward import deepscaler_reward_fn
 from math_verify import parse, verify
-from verl.utils.reward_score.deepscaler_math.math_reward import deepscaler_reward_fn
 import tempfile
 import subprocess
 from contextlib import contextmanager

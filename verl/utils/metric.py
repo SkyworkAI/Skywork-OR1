@@ -349,29 +349,3 @@ class MetricFunc(object):
             metric[f"exploration/scores/{query_tag}/std"] = tag_scores.std().item()
 
         return metric
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
-    with open(f"/mnt/data/jiacai.liu/batch_dict_grpo_1.pkl", "rb") as f:
-        batch_dict = pickle.load(f)
-    with open(f"/mnt/data/jiacai.liu/batch_grpo_1.pkl", "rb") as f:
-        batch = pickle.load(f)
-
-    tokenizer = AutoTokenizer.from_pretrained("/mnt/data/jiacai.liu/Qwen2.5-1.5B")
-    metric_func = MetricFunc(tokenizer)
-
-    import json
-    import time
-
-    st = time.time()
-    metric = metric_func(batch_dict=batch_dict, batch=batch)
-
-    print(json.dumps(metric, ensure_ascii=False, indent=4))
-    print(time.time() - st)
-    print(metric_func.parse_tags("train;test-math-gsm8k;diff_1;linear_algebra"))

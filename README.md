@@ -112,43 +112,28 @@ Training scripts are currently being organized and will be available in 1-2 days
 
 We provide evaluation scripts to reproduce the results of the `Skywork-OR1-Series`.
 
-#### AIME24 and AIME25
+#### Data Preparation
 
 Evaluation data for AIME24 and AIME25 is already available in our GitHub repository.
-
-```bash
-# Evalation AIME24
-MODEL_PATH=Skywork/Skywork-OR1-32B-Preview \
-DATA_PATH=or1_data/eval/aime24.parquet \
-SAMPLES=32 \
-TASK_NAME=Aime24_Avg$SAMPLES-Skywork_OR1_Math_7B \
-bash ./or1_script/eval/eval_32b.sh
-
-# Evalation AIME25
-MODEL_PATH=Skywork/Skywork-OR1-Math-7B \
-DATA_PATH=or1_data/eval/aime25.parquet \
-SAMPLES=32 \
-TASK_NAME=Aime25_Avg$SAMPLES-Skywork_OR1_Math_7B \
-bash ./or1_script/eval/eval_7b.sh
-```
-
-#### LiveCodeBench
 
 For Livecodebench, please download the data from [Hugging Face](https://huggingface.co/datasets/Skywork/LiveCodeBench).
 
 ```bash
-# Download LCB
+# Download LiveCodeBench
 huggingface-cli download Skywork/LiveCodeBench --repo-type=dataset --local-dir or1_data/eval/livecodebench
 unzip or1_data/eval/livecodebench/livecodebench.zip -d or1_data/eval/livecodebench/
 mv or1_data/eval/livecodebench/livecodebench/* or1_data/eval/livecodebench/
-
-# Evalation LCB
-MODEL_PATH=Skywork/Skywork-OR1-Math-7B \
-DATA_PATH=or1_data/eval/livecodebench/livecodebench_2408_2502.parquet \
-SAMPLES=4 \
-TASK_NAME=LiveCodeBench_Avg$SAMPLES-Skywork_OR1_Math_7B \
-bash ./or1_script/eval/eval_7b.sh
 ```
+
+#### Evaluation Start
+```bash
+bash /mnt/data2/rui.yan/Skywork-OR1/or1_scripts/eval/eval_7b.sh
+
+bash /mnt/data2/rui.yan/Skywork-OR1/or1_scripts/eval/eval_32b.sh
+```
+
+The evaluation results will be automatically saved to [outputs/evalation/pass.csv](outputs/evalation/pass.csv)
+
 
 ## 📄 Technical Report
 
