@@ -114,17 +114,17 @@ We provide evaluation scripts to reproduce the results of the `Skywork-OR1-Serie
 
 #### AIME24 and AIME25
 
-Evaluation data for AIME24 and AIME25 is already available in our GitHub repository.
+Evaluation data for AIME24 and AIME25 is already available in our GitHub repository. Here are some examples:
 
 ```bash
-# Evalation AIME24
+# Evalation Skywork-OR1-32B-Preview on AIME24 with 32 samples per question
 MODEL_PATH=Skywork/Skywork-OR1-32B-Preview \
 DATA_PATH=or1_data/eval/aime24.parquet \
 SAMPLES=32 \
-TASK_NAME=Aime24_Avg$SAMPLES-Skywork_OR1_Math_7B \
+TASK_NAME=Aime24_Avg$SAMPLES-Skywork_OR1_32B_Preview \
 bash ./or1_script/eval/eval_32b.sh
 
-# Evalation AIME25
+# Evalation Skywork-OR1-Math-7B on AIME25 with 32 samples per question
 MODEL_PATH=Skywork/Skywork-OR1-Math-7B \
 DATA_PATH=or1_data/eval/aime25.parquet \
 SAMPLES=32 \
@@ -142,11 +142,11 @@ huggingface-cli download Skywork/LiveCodeBench --repo-type=dataset --local-dir o
 unzip or1_data/eval/livecodebench/livecodebench.zip -d or1_data/eval/livecodebench/
 mv or1_data/eval/livecodebench/livecodebench/* or1_data/eval/livecodebench/
 
-# Evalation LCB
-MODEL_PATH=Skywork/Skywork-OR1-Math-7B \
+# Evalation Skywork-OR1-7B-Preview on LCB
+MODEL_PATH=Skywork/Skywork-OR1-7B-Preview \
 DATA_PATH=or1_data/eval/livecodebench/livecodebench_2408_2502.parquet \
 SAMPLES=4 \
-TASK_NAME=LiveCodeBench_Avg$SAMPLES-Skywork_OR1_Math_7B \
+TASK_NAME=LiveCodeBench_Avg$SAMPLES-Skywork_OR1_7B_Preview \
 bash ./or1_script/eval/eval_7b.sh
 ```
 
