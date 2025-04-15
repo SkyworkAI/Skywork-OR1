@@ -26,12 +26,12 @@ import pickle
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--local_dir', default='./skywrok_data/Skywork-Orz-Rl-data')
+    parser.add_argument('--local_dir', default='./skywrok_data/Skywork-OR1-RL-Data')
     parser.add_argument('--hdfs_dir', default=None)
 
     args = parser.parse_args()
 
-    data_source = 'Skywork/Skywork-Orz-Rl-data'
+    data_source = 'Skywork/Skywork-OR1-RL-Data'
 
     dataset = datasets.load_dataset(data_source)
     print("\n\nOriginal dataset: ", "\n", dataset)
