@@ -106,7 +106,7 @@ pip3 install -e .
 
 ### Training ⚙️
 
-Training scripts are currently being organized and will be available in 1-2 days. Please stay tuned.
+We provide training scripts and data to reproduce the results of the “Skywork-OR1-Series”.
 
 ### Training Data Preparation
 
@@ -124,6 +124,71 @@ This will generate the training data in the following format:
 ./or1_data/train/train_${model_size}_code.pkl
 ```
 
+### Train Script
+
+By default, we only provide evaluation on AIME datasets. If you would like to evaluate on LiveCodeBench, please refer to the section [**Evaluation Data Preparation**](#evaluation-data-preparation)  and set `LIVECODEBENCH_DATA_PATH` to `./or1_data/eval/livecodebench/livecodebench_2408_2502`.
+
+```bash
+# Note: You must provide CODE_PATH and MODEL_PATH
+model_size=7b # or 32b
+train_seq_len=8 # or 16, 32
+export CODE_PATH=./
+export MODEL_PATH=
+bash ./or1_scripts/train/${model_size}_${train_seq_len}k.sh
+```
+
+### Using Ray for Multi-Node Training
+
+If you plan to perform **multi-node training**, you need to **start and connect all nodes using Ray** before launching the training script. Here's a quick guide to set up Ray across machines:
+
+#### Step 1: Start Ray on the Head Node (node0)
+
+On the first node (typically called `node0`), run:
+
+```bash
+ray start --head --dashboard-host=0.0.0.0
+```
+
+After running the command, you will see a message like:
+
+```
+Ray runtime started.
+Next steps
+To add another node to this Ray cluster, run
+    ray start --address='10.94.16.4:6379'
+```
+
+Note down the IP address (in this example, `10.94.16.4`).
+
+#### Step 2: Connect Other Nodes (e.g., node1)
+
+On each additional worker node (e.g., `node1`), run the following, replacing the IP with that of your head node:
+
+```bash
+ray start --address='10.94.16.4:6379'
+```
+
+#### Step 3: Check Cluster Status
+
+On `node0`, run:
+
+```bash
+ray status
+```
+
+You should see output showing all connected nodes and available resources (e.g., CPUs, GPUs, memory). For example:
+
+```
+Resources
+---------------------------------------------------------------
+Usage:
+ 0.0/360.0 CPU
+ 0.0/16.0 GPU
+...
+```
+
+Once the Ray cluster is up and running, you can launch the training script as usual. The script will automatically utilize the connected nodes.
+
 ### Evaluation ⚖️
 
 We provide evaluation scripts to reproduce the results of the `Skywork-OR1-Series`.
@@ -132,7 +197,7 @@ We provide evaluation scripts to reproduce the results of the `Skywork-OR1-Serie
 
 Evaluation data for AIME24 and AIME25 is already available in our GitHub repository.
 
-For Livecodebench, please download the data from [Hugging Face](https://huggingface.co/datasets/Skywork/LiveCodeBench).
+For LiveCodeBench, please download the data from [Hugging Face](https://huggingface.co/datasets/Skywork/LiveCodeBench).
 
 ```bash
 # Download LiveCodeBench

@@ -153,12 +153,14 @@ def get_deepseek_r1_question_template_answer(question: CodeGenerationProblem):
 
 import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
+try:
+    with open(os.path.join(current_dir, "few_shot_examples/generation/func.json")) as f:
+        func = json.load(f)
 
-with open(os.path.join(current_dir, "few_shot_examples/generation/func.json")) as f:
-    func = json.load(f)
-
-with open(os.path.join(current_dir, "few_shot_examples/generation/stdin.json")) as f:
-    stdin = json.load(f)
+    with open(os.path.join(current_dir, "few_shot_examples/generation/stdin.json")) as f:
+        stdin = json.load(f)
+except FileNotFoundError:
+    warnings.warn("Few shot examples not found, skipping...")
 
 def get_base_model_question_template_answer(question: CodeGenerationProblem):
     if question.starter_code:

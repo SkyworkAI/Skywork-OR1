@@ -44,8 +44,8 @@ inf = float('inf')
 '''
 
 livecodebench_dir = os.environ.get("LIVECODEBENCH_DATA_PATH", None)
-if livecodebench_dir is None:
-    raise ValueError("LIVECODEBENCH_DATA_PATH is not set")
+# if livecodebench_dir is None:
+#     raise ValueError("LIVECODEBENCH_DATA_PATH is not set")
 
 
 @contextmanager
