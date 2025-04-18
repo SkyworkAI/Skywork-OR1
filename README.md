@@ -132,8 +132,8 @@ By default, we only provide evaluation on AIME datasets. If you would like to ev
 # Note: You must provide CODE_PATH and MODEL_PATH
 model_size=7b # or 32b
 train_seq_len=8 # or 16, 32
-CODE_PATH=./
-MODEL_PATH=
+export CODE_PATH=./
+export MODEL_PATH=
 bash ./or1_scripts/train/${model_size}_${train_seq_len}k.sh
 ```
 
