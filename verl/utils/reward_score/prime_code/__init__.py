@@ -19,7 +19,9 @@ import traceback
 from verl.utils.reward_score.livecodebench import lcb_compute_score, prepare_unit_test_data
 import os, pickle
 
-livecodebench_dir = '/mnt/data/rui.yan/projects/r1/datasets/verl_datasets/code/code_generation_lite/livecodebench_2408_2502'
+livecodebench_dir = os.environ.get("LIVECODEBENCH_DATA_PATH", None)
+# if livecodebench_dir is None:
+#     raise ValueError("LIVECODEBENCH_DATA_PATH is not set")
 
 def compute_score(completion, test_cases, task=None, continuous=False):
     # try to get code solution from completion. if the completion is pure code, this will not take effect.
