@@ -66,6 +66,14 @@ if __name__ == '__main__':
     math_data_list = [item for item in data_list if item['ability'] == 'math']
     code_data_list = [item for item in data_list if item['ability'] == 'code']
     
+    for i in range(len(code_data_list)):
+        new_ground_truth = {}
+        item = code_data_list[i]['reward_model']['ground_truth']
+        for key in item:
+            if item[key]:
+                new_ground_truth[key] = item[key]
+        code_data_list[i]['reward_model']['ground_truth'] = new_ground_truth
+
     local_dir = args.local_dir
     hdfs_dir = args.hdfs_dir
     os.makedirs(local_dir, exist_ok=True)
