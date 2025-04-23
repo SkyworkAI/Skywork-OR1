@@ -70,7 +70,7 @@ if __name__ == '__main__':
         new_ground_truth = {}
         item = code_data_list[i]['reward_model']['ground_truth']
         for key in item:
-            if item[key]:
+            if item[key] is not None:
                 new_ground_truth[key] = item[key]
         code_data_list[i]['reward_model']['ground_truth'] = new_ground_truth
 
