@@ -23,8 +23,10 @@
 </div>
 
 ## 🔥 News
-- **April 15, 2025**: We release our rl training dataset [`Skywork-OR1-RL-Data`](https://huggingface.co/datasets/Skywork/Skywork-OR1-RL-Data)
-
+- **May 13, 2025**: We release our final version of **`Skywork-OR1`** series of models：**`Skywork-OR1-32B`** and **`Skywork-OR1-7B`**.
+  -  [`Skywork-OR1-32B`](https://huggingface.co/Skywork/Skywork-OR1-32B-Preview)  outperforms Deepseek-R1 and Qwen3-32B on math tasks (AIME24 and AIME25) and delivers comparable performance on coding tasks (LiveCodeBench). 
+  - **[`Skywork-OR1-7B`](https://huggingface.co/Skywork/Skywork-OR1-7B)** exhibits competitive performance compared to similarly sized models in both math and coding scenarios.
+- **April 15, 2025**: We release our rl training dataset [`Skywork-OR1-RL-Data`](https://huggingface.co/datasets/Skywork/Skywork-OR1-RL-Data).
 - **April 13, 2025**: We release the **`Skywork-OR1`** (Open Reasoner 1) series of models, including **`Skywork-OR1-Math-7B`**, **`Skywork-OR1-32B-Preview`**, and **`Skywork-OR1-7B-Preview`**. We open-source
   - 🤗 Model weights: [`Skywork-OR1-Math-7B`](https://huggingface.co/Skywork/Skywork-OR1-Math-7B),  [`Skywork-OR1-32B-Preview`](https://huggingface.co/Skywork/Skywork-OR1-32B-Preview), [`Skywork-OR1-7B-Preview`](https://huggingface.co/Skywork/Skywork-OR1-7B-Preview)
   - 🤗 Training data: [`Skywork-OR1-RL-Data`](https://huggingface.co/datasets/Skywork/Skywork-OR1-RL-Data)
@@ -34,25 +36,21 @@
 ## 📖 Overview
 
 <div align="center">
-<img src="./assets/skywork-or1-math-7b-multi-stage.png" width="60%"/>
+<img src="./assets/32b_perf.jpg" width="100%"/>
 
-<sub>The AIME24 scores versus training steps of Skywork-OR1-Math-7B in our multi-stage training pipeline.</sub>
+<sub>The AIME24 and AIME225 scores versus training steps of Skywork-OR1-32B in our multi-stage training pipeline.</sub>
 </div>
 
-The **`Skywork-OR1`** (Open Reasoner 1) model series consists of powerful math and code reasoning models trained using large-scale rule-based reinforcement learning with carefully designed datasets and training recipes. This series includes two general-purpose reasoning models—**`Skywork-OR1-7B-Preview`** and **`Skywork-OR1-32B-Preview`**—along with a math-specialized model, **`Skywork-OR1-Math-7B`**.
+The **`Skywork-OR1`** (Open Reasoner 1) model series consists of powerful math and code reasoning models trained using large-scale rule-based reinforcement learning with carefully designed datasets and training recipes. This series includes two general-purpose reasoning modelsl, **`Skywork-OR1-7B`** and **`Skywork-OR1-32B`**.
 
-- **[`Skywork-OR1-Math-7B`](https://huggingface.co/Skywork/Skywork-OR1-Math-7B)** is specifically optimized for mathematical reasoning, scoring **69.8** on AIME24 and **52.3** on AIME25 — well ahead of all models of similar size.
-- **[`Skywork-OR1-32B-Preview`](https://huggingface.co/Skywork/Skywork-OR1-32B-Preview)** delivers the 671B-parameter Deepseek-R1 performance on math tasks (AIME24 and AIME25) and coding tasks (LiveCodeBench).
-- **[`Skywork-OR1-7B-Preview`](https://huggingface.co/Skywork/Skywork-OR1-7B-Preview)** outperforms all similarly sized models in both math and coding scenarios.
-
-The final release version will be available in two weeks.
+- **[`Skywork-OR1-32B`](https://huggingface.co/Skywork/Skywork-OR1-32B)** outperforms Deepseek-R1 and Qwen3-32B on math tasks (AIME24 and AIME25) and delivers comparable performance on coding tasks (LiveCodeBench).
+- **[`Skywork-OR1-7B`](https://huggingface.co/Skywork/Skywork-OR1-7B)** exhibits competitive performance compared to similarly sized models in both math and coding scenarios.
 
 ## 📊 Evaluation
 
 <div align="center">
-<div style="display: flex; justify-content: center; gap: 20px;">
-<img src="./assets/32b_perf.png" width="75%"/>
-<img src="./assets/7b_perf.png" width="75%"/>
+<img src="./assets/32b_eval.jpg" width="75%"/>
+<img src="./assets/7b_eval.jpg" width="75%"/>
 </div>
 </div>
 <br>
@@ -61,17 +59,19 @@ We evaluate our models on AIME24, AIME25, and LiveCodeBench. Instead of using Pa
 
 We include the detailed results in the following table.
 
-| Model | AIME24 (Avg@32) | AIME25 (Avg@32) | LiveCodeBench (8/1/24-2/1/25) (Avg@4) |
-|-------|---------|---------|--------------|
-| DeepSeek-R1-Distill-Qwen-7B | 55.5 | 39.2| 37.6 |
-| Light-R1-7B-DS | 59.1 | 44.3| 39.5 |
-| DeepSeek-R1-Distill-Qwen-32B | 72.9 | 59.0| 57.2 |
-| TinyR1-32B-Preview | 78.1| 65.3| 61.6 |
-| QwQ-32B | 79.5 | 65.3| 61.6 |
-| DeepSeek-R1 | 79.8 | 70.0| 65.9 |
-| **Skywork-OR1-Math-7B** | 69.8 | 52.3 | 43.6 |
-| **Skywork-OR1-7B-Preview** | 63.6 | 45.8 | 43.9 |
-| **Skywork-OR1-32B-Preview** | 79.7 | 69.0 | 63.9 |
+| Model                        | AIME24 (Avg@32) | AIME25 (Avg@32) | LiveCodeBench (8/1/24-2/1/25) (Avg@4) |
+| ---------------------------- | --------------- | --------------- | ------------------------------------- |
+| DeepSeek-R1-Distill-Qwen-7B  | 55.5            | 39.2            | 37.6                                  |
+| Light-R1-7B-DS               | 59.1            | 44.3            | 39.5                                  |
+| **Skywork-OR1-7B**           | 70.2            | 54.6            | 47.6                                  |
+| DeepSeek-R1-Distill-Qwen-32B | 72.9            | 59.0            | 57.2                                  |
+| TinyR1-32B-Preview           | 78.1            | 65.3            | 61.6                                  |
+| QwQ-32B                      | 79.5            | 65.3            | 61.6                                  |
+| Qwen3-32B                    | 81.4            | 72.9            | 65.7                                  |
+| DeepSeek-R1                  | 79.8            | 70.0            | 65.9                                  |
+| **Skywork-OR1-32B**          | 82.2            | 73.3            | 63.0                                  |
+
+
 
 ## 🎯 Getting Started
 
