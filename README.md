@@ -24,7 +24,7 @@
 
 ## 🔥 News
 - **May 13, 2025**: We release our final version of **`Skywork-OR1`** series of models：**`Skywork-OR1-32B`** and **`Skywork-OR1-7B`**.
-  -  [`Skywork-OR1-32B`](https://huggingface.co/Skywork/Skywork-OR1-32B-Preview)  outperforms Deepseek-R1 and Qwen3-32B on math tasks (AIME24 and AIME25) and delivers comparable performance on coding tasks (LiveCodeBench). 
+  - **[`Skywork-OR1-32B`](https://huggingface.co/Skywork/Skywork-OR1-32B)**  outperforms Deepseek-R1 and Qwen3-32B on math tasks (AIME24 and AIME25) and delivers comparable performance on coding tasks (LiveCodeBench). 
   - **[`Skywork-OR1-7B`](https://huggingface.co/Skywork/Skywork-OR1-7B)** exhibits competitive performance compared to similarly sized models in both math and coding scenarios.
 - **April 15, 2025**: We release our rl training dataset [`Skywork-OR1-RL-Data`](https://huggingface.co/datasets/Skywork/Skywork-OR1-RL-Data).
 - **April 13, 2025**: We release the **`Skywork-OR1`** (Open Reasoner 1) series of models, including **`Skywork-OR1-Math-7B`**, **`Skywork-OR1-32B-Preview`**, and **`Skywork-OR1-7B-Preview`**. We open-source
