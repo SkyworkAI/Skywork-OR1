@@ -23,8 +23,10 @@
 </div>
 
 ## 🔥 News
+
+- **May 29, 2025**: Our [Skywork Open Reasoner 1 Technical Report](https://arxiv.org/abs/2505.22312) has been released on arXiv. We provide further details on the training pipeline, investigation and mitigation to the entropy collapse phenomenon, and extensive analysis and ablation studies.
 - **May 13, 2025**: We release our final version of **`Skywork-OR1`** series of models：**`Skywork-OR1-32B`** and **`Skywork-OR1-7B`**.
-  - **[`Skywork-OR1-32B`](https://huggingface.co/Skywork/Skywork-OR1-32B)**  outperforms Deepseek-R1 and Qwen3-32B on math tasks (AIME24 and AIME25) and delivers comparable performance on coding tasks (LiveCodeBench). 
+  - **[`Skywork-OR1-32B`](https://huggingface.co/Skywork/Skywork-OR1-32B)**  outperforms Deepseek-R1 and Qwen3-32B on math tasks (AIME24 and AIME25) and delivers comparable performance on coding tasks (LiveCodeBench).
   - **[`Skywork-OR1-7B`](https://huggingface.co/Skywork/Skywork-OR1-7B)** exhibits competitive performance compared to similarly sized models in both math and coding scenarios.
 - **April 15, 2025**: We release our rl training dataset [`Skywork-OR1-RL-Data`](https://huggingface.co/datasets/Skywork/Skywork-OR1-RL-Data).
 - **April 13, 2025**: We release the **`Skywork-OR1`** (Open Reasoner 1) series of models, including **`Skywork-OR1-Math-7B`**, **`Skywork-OR1-32B-Preview`**, and **`Skywork-OR1-7B-Preview`**. We open-source
@@ -70,8 +72,6 @@ We include the detailed results in the following table.
 | Qwen3-32B                    | 81.4            | 72.9            | 65.7                                  |
 | DeepSeek-R1                  | 79.8            | 70.0            | 65.9                                  |
 | **Skywork-OR1-32B**          | 82.2            | 73.3            | 63.0                                  |
-
-
 
 ## 🎯 Getting Started
 
@@ -227,9 +227,16 @@ Our technical report will be released soon. Stay tuned!
 
 ## 📚 Citation
 
-We will update the citation once the technical report is released. In the meantime, please cite the following:
+Please cite the following:
 
 ```bibtex
+@article{he2025skywork,
+  title={Skywork Open Reasoner 1 Technical Report},
+  author={He, Jujie and Liu, Jiacai and Liu, Chris Yuhao and Yan, Rui and Wang, Chaojie and Cheng, Peng and Zhang, Xiaoyu and Zhang, Fuxiang and Xu, Jiacheng and Shen, Wei and Li, Siyuan and Zeng, Liang and Wei, Tianwen and Cheng, Cheng and An, Bo and Liu, Yang and Zhou, Yahui},
+  journal={arXiv preprint arXiv:2505.22312},
+  year={2025}
+}
+
 @misc{skywork-or1-2025,
   title={Skywork Open Reasoner Series},
   author = {He, Jujie and Liu, Jiacai and Liu, Chris Yuhao and Yan, Rui and Wang, Chaojie and Cheng, Peng and Zhang, Xiaoyu and Zhang, Fuxiang and Xu, Jiacheng and Shen, Wei and Li, Siyuan and Zeng, Liang and Wei, Tianwen and Cheng, Cheng and An, Bo and Liu, Yang and Zhou, Yahui},
