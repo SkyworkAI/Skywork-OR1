@@ -26,6 +26,8 @@ import subprocess
 from contextlib import contextmanager
 import signal
 import ast
+import numpy as np
+
 
 IMPORT_PROMPT='''from typing import *
 
@@ -252,6 +254,17 @@ def compute_score(completion, test_cases, task=None, timeout=6, is_long_penalty=
                 debug=False,
                 timeout=timeout,
             )
+
+            metrics = list(metrics)
+            fixed = []
+            for e in metrics[0]:
+                if isinstance(e, np.ndarray):
+                    e = e.item(0)
+                if isinstance(e, np.bool_):
+                    e = bool(e)
+                fixed.append(e)
+            metrics[0] = fixed
+
             if is_binary_reward:
                 return sum(metrics[0]) == len(metrics[0]), metrics
             else:
